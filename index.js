@@ -16,7 +16,8 @@ app.use(express.json());
 //bd
 dbConnection();
 
-console.log(process.env)
+//DIRECTORIO PUBLICO
+app.use(express.static('public'));
 
 // mean_user
 // 7iNgDf4XiXs5zyAl
