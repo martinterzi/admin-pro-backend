@@ -27,7 +27,14 @@ crearMedicos);
 
 
 
-router.put('/:id', actualizarMedicos);
+router.put('/:id',
+[
+  validarJWT,
+  check('nombre', ' el nombre de Medico es necesario').not().isEmpty(),
+  check('hospital', 'El hospital id debe ser valido').isMongoId(),
+  validarCampos
+]
+,actualizarMedicos);
 
 
 router.delete('/:id', borrarMedicos);
